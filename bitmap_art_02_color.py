@@ -34,8 +34,8 @@ def spew_to_image(hexstream, img_name):
     img = Image.new('RGB', (640,640), (0,0,0))
     draw =  ImageDraw.Draw(img)
 
-    position = 0
     for i in range(0,len(hexstream), digits_per_pixel):
+        position = i / digits_per_pixel
         y_start = int(position/NUM_BITS_X) * pixel_height
         y_end = y_start + pixel_height
 
