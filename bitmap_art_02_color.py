@@ -3,11 +3,13 @@ import os
 
 MY_PATH = os.path.dirname(os.path.realpath(__file__))
 
+# image size
 IMAGE_FULL_X = 640
 IMAGE_FULL_Y = 640
 
-NUM_BITS_X = 16
-NUM_BITS_Y = 16
+#
+NUM_BLOCKS_X = 8
+NUM_BLOCKS_Y = 8
 
 def spew_to_image(hexstream, img_name):
     """
@@ -15,13 +17,13 @@ def spew_to_image(hexstream, img_name):
     and then display it as an image.  Note: unexpected
     failures if bit stream is not properly formatted/structured
     """
-    pixel_width = int(IMAGE_FULL_X / NUM_BITS_X)
-    pixel_height = int(IMAGE_FULL_Y / NUM_BITS_Y)
+    pixel_width = int(IMAGE_FULL_X / NUM_BLOCKS_X)
+    pixel_height = int(IMAGE_FULL_Y / NUM_BLOCKS_Y)
 
     digits_per_pixel = 6
 
-    total_length = NUM_BITS_X * NUM_BITS_Y * digits_per_pixel
-    if len(hexstream) != total_length:
+    total_length = NUM_BLOCKS_X * NUM_BLOCKS_Y * digits_per_pixel
+    if len(hexstream) < total_length:
         print(f'Hexstream is not correct length.  Expected {total_length},', end='');
         print(f'but found {len(hexstream)}')
         exit(0)
@@ -36,10 +38,10 @@ def spew_to_image(hexstream, img_name):
 
     for i in range(0,len(hexstream), digits_per_pixel):
         position = i / digits_per_pixel
-        y_start = int(position/NUM_BITS_X) * pixel_height
+        y_start = int(position/NUM_BLOCKS_X) * pixel_height
         y_end = y_start + pixel_height
 
-        x_start = (position % NUM_BITS_X) * pixel_width
+        x_start = (position % NUM_BLOCKS_X) * pixel_width
         x_end = x_start + pixel_width
 
         # pick the color
