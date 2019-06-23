@@ -6,8 +6,8 @@ MY_PATH = os.path.dirname(os.path.realpath(__file__))
 IMAGE_FULL_X = 640
 IMAGE_FULL_Y = 640
 
-NUM_BITS_X = 8
-NUM_BITS_Y = 8
+NUM_BITS_X = 16
+NUM_BITS_Y = 16
 
 def spew_to_image(hexstream, img_name):
     """
@@ -23,7 +23,7 @@ def spew_to_image(hexstream, img_name):
     total_length = NUM_BITS_X * NUM_BITS_Y * digits_per_pixel
     if len(hexstream) != total_length:
         print(f'Hexstream is not correct length.  Expected {total_length},', end='');
-        print(f'but found {len(bitstream)}')
+        print(f'but found {len(hexstream)}')
         exit(0)
 
     is_hex = all(ch in('0123456789abcdefABCDEF') for ch in hexstream)
