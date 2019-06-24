@@ -29,14 +29,14 @@
 # print( f'{some_message} {num:08b}')
 #
 # # Part 7 - appending nums
-some_num = '1'
-other_num = '1'
-a= 1
-b = 1
-c= a+b
-a_num = 0b_0011_0011
-b_num = 0b_0100_1101
-result = a_num + b_num
-print(f'{a_num:0b} + {b_num:0b}={result:0b}')
+# some_num = '1'
+# other_num = '1'
+# a= 1
+# b = 1
+# c= a+b
+# a_num = 0b_0011_0011
+# b_num = 0b_0100_1101
+# result = a_num + b_num
+# print(f'{a_num:0b} + {b_num:0b}={result:0b}')
 
 # print(f'{some_num}+{other_num}={result}')

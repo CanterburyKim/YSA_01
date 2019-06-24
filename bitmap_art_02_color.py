@@ -3,13 +3,13 @@ import os
 
 MY_PATH = os.path.dirname(os.path.realpath(__file__))
 
-# image size
+# full image size
 IMAGE_FULL_X = 640
 IMAGE_FULL_Y = 640
 
-#
-NUM_BLOCKS_X = 8
-NUM_BLOCKS_Y = 8
+# actual image dimensions
+NUM_BLOCKS_X = 16
+NUM_BLOCKS_Y = 16
 
 def spew_to_image(hexstream, img_name):
     """

@@ -33,7 +33,7 @@ def spew_to_image(bitstream, img_name):
         print(f'Bitstream must be all 0s and 1s.  {bitstream} has other chars')
         exit(0)
 
-    img = Image.new('RGB', IMAGE_FULL_X,IMAGE_FULL_Y), BLACK)
+    img = Image.new('RGB', (IMAGE_FULL_X,IMAGE_FULL_Y), BLACK)
     draw =  ImageDraw.Draw(img)
 
     for i in range(len(bitstream)):
