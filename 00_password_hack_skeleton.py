@@ -48,7 +48,6 @@ with open(ifname) as inf:
         password_list.append(word)
 
 # Module 2 hash a word
-# How to hash a word
 
 my_text = 'some_word'
 encoded_text = my_text.encode('utf-8')
